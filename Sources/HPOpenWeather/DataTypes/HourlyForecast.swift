@@ -6,6 +6,7 @@ public struct HourlyForecast: BasicWeatherResponse {
     public let pressure: Double?
     public let humidity: Double?
     public let dewPoint: Double?
+    public let precipitationProbability: Double?
     public let uvIndex: Double?
     public let visibility: Double?
     public let cloudCoverage: Double?
@@ -23,6 +24,7 @@ public struct HourlyForecast: BasicWeatherResponse {
     enum CodingKeys: String, CodingKey {
         case temperature = "temp"
         case feelsLike = "feels_like"
+        case precipitationProbability = "pop"
         case snow
         case rain
         case timestamp = "dt"
@@ -48,6 +50,7 @@ public struct HourlyForecast: BasicWeatherResponse {
         pressure = try container.decodeIfPresent(Double.self, forKey: .pressure)
         humidity = try container.decodeIfPresent(Double.self, forKey: .humidity)
         dewPoint = try container.decodeIfPresent(Double.self, forKey: .dewPoint)
+        precipitationProbability = try container.decodeIfPresent(Double.self, forKey: .precipitationProbability)
         uvIndex = try container.decodeIfPresent(Double.self, forKey: .uvIndex)
         visibility = try container.decodeIfPresent(Double.self, forKey: .visibility)
         cloudCoverage = try container.decodeIfPresent(Double.self, forKey: .cloudCoverage)
@@ -70,6 +73,7 @@ public struct HourlyForecast: BasicWeatherResponse {
         try container.encode(timestamp, forKey: .timestamp)
         try container.encode(pressure, forKey: .pressure)
         try container.encode(humidity, forKey: .humidity)
+        try container.encode(precipitationProbability, forKey: .precipitationProbability)
         try container.encode(dewPoint, forKey: .dewPoint)
         try container.encode(uvIndex, forKey: .uvIndex)
         try container.encode(visibility, forKey: .visibility)
