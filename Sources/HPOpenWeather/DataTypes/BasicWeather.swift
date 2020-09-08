@@ -28,3 +28,11 @@ public protocol SunResponse: Codable, Hashable {
     var sun: Sun { get }
 
 }
+
+public protocol MinutelyWeatherResponse: Codable, Hashable {
+
+    /// The timestamp when the data was collected
+    var timestamp: Date { get }
+    /// Precipitation in mm
+    var precipitation: Double? { get }
+}
