@@ -24,7 +24,7 @@ public struct WeatherRequest: OpenWeatherRequest {
     }
 
     public func makeURL(settings: HPOpenWeather.Settings) -> URL {
-        URLQueryItemsBuilder(host: "api.openweathermap.org")
+        URLQueryItemsBuilder(host: "pro.openweathermap.org")
             .addingPathComponent("data")
             .addingPathComponent("2.5")
             .addingPathComponent("onecall")
